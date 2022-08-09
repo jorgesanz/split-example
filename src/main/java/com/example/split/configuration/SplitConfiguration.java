@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 public class SplitConfiguration {
 
     @Bean
-    public static SplitFactory getSplitFactory(@Value("${split.api-token}") String apiToken) throws Exception {
+    public SplitFactory getSplitFactory(@Value("${split.api-token}") String apiToken) throws Exception {
 
         SplitClientConfig config = SplitClientConfig.builder()
                 .setBlockUntilReadyTimeout(10000)

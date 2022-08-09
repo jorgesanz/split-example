@@ -18,18 +18,21 @@ public class SayHelloService {
     public String getMessage(String user) {
         String message = "Hello %s";
 
-        switch (splitClient.getTreatment(user, ADD_DATE_FEATURE)){
-            case OFF: return sayHello(user, message);
-            case ON: return  addDateToResponse(sayHello(user, message));
-            default: throw new IllegalStateException();
+        switch (splitClient.getTreatment(user, ADD_DATE_FEATURE)) {
+            case OFF:
+                return sayHello(user, message);
+            case ON:
+                return addDateToResponse(sayHello(user, message));
+            default:
+                throw new IllegalStateException();
         }
     }
 
-    private static String sayHello(String user, String message) {
+    private String sayHello(String user, String message) {
         return String.format(message, user);
     }
 
     private String addDateToResponse(String message) {
-        return message+", current date is "+ZonedDateTime.now();
+        return message + ", current date is " + ZonedDateTime.now();
     }
 }
