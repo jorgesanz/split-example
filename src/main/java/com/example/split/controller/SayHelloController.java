@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class FeaturesController {
+public class SayHelloController {
 
     @Autowired
     private SayHelloService sayHelloService;
 
-    @GetMapping(path = "/features/{user}")
+    @GetMapping(path = "/say-hello/{user}")
     public ResponseEntity<String> features(@PathVariable String user) {
         try {
             return ResponseEntity.ok(sayHelloService.getMessage(user));
